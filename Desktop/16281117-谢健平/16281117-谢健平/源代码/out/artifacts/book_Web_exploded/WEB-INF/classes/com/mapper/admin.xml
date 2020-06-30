@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.AdminDAO">
+    <resultMap type="com.entity.Admin" id="adminMap">
+        <id property="adminid" column="adminid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="realname" column="realname"/>
+        <result property="contact" column="contact"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="insert" parameterType="admin">
+		insert into admin( username , password , realname , contact )
+		values( #{username} , #{password} , #{realname} ,
+		#{contact} )
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="update" parameterType="admin">
+		update admin set username=#{username} , password=#{password} ,
+		realname=#{realname} , contact=#{contact} where adminid=#{adminid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="delete" parameterType="String">
+		delete from admin where adminid = #{adminid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="getAll" parameterType="map" resultMap="adminMap">
+        select  * from admin
+        where 1=1
+        <if test="keyword != null and keyword != ''">
+            and
+            (
+            admin.username like CONCAT('%',#{keyword},'%') or
+            admin.realname like CONCAT('%',#{keyword},'%') or
+            admin.contact like CONCAT('%',#{keyword},'%')
+            )
+        </if>
+
+        order by adminid desc
+        <if test="(start != null and start != '') or start==0 ">
+            <if test=" limit != null and limit != ''">
+                limit #{start},#{limit}
+            </if>
+        </if>
+    </select>
+
+    <!-- 统计 获取 总数    用于分页-->
+    <select id="getRowSize" parameterType="map" resultType="int" useCache="false">
+        SELECT count(1)
+        FROM admin
+
+        where 1=1
+        <if test="keyword != null and keyword != ''">
+            and
+            (
+            admin.username like CONCAT('%',#{keyword},'%') or
+            admin.realname like CONCAT('%',#{keyword},'%') or
+            admin.contact like CONCAT('%',#{keyword},'%')
+            )
+        </if>
+
+    </select>
+
+
+
+
+    <!-- 按主键查询 DAO通过id调用此配置 -->
+    <select id="getById" parameterType="String" resultMap="adminMap">
+		select a.* from admin a where adminid=#{adminid} order by adminid desc
+	</select>
+
+
+
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="getByCond" parameterType="admin" resultMap="adminMap">
+        select a.* from admin a where 1=1
+        <if test="username != null and '' != username">
+            and a.username = #{username}
+        </if>
+        <if test="password != null and '' != password">
+            and a.password = #{password}
+        </if>
+        <if test="realname != null and '' != realname">
+            and a.realname = #{realname}
+        </if>
+        <if test="contact != null and '' != contact">
+            and a.contact = #{contact}
+        </if>
+    </select>
+    <!-- 按条件模糊查询 DAO通过id调用此配置 -->
+    <select id="getByLike" parameterType="admin" resultMap="adminMap">
+        select a.* from admin a where 1=1
+        <if test="username != null and '' != username">
+            and a.username like CONCAT('%', CONCAT(#{username}, '%'))
+        </if>
+        <if test="password != null and '' != password">
+            and a.password like CONCAT('%', CONCAT(#{password}, '%'))
+        </if>
+        <if test="realname != null and '' != realname">
+            and a.realname like CONCAT('%', CONCAT(#{realname}, '%'))
+        </if>
+        <if test="contact != null and '' != contact">
+            and a.contact like CONCAT('%', CONCAT(#{contact}, '%'))
+        </if>
+    </select>
+</mapper>
+
+

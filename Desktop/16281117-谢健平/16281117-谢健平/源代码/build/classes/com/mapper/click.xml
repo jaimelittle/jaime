@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.ClickDAO">
+    <resultMap type="com.entity.Click" id="clickMap">
+        <id property="clickid" column="clickid"/>
+        <result property="usersid" column="usersid"/>
+        <result property="articleid" column="articleid"/>
+        <result property="addtime" column="addtime"/>
+
+        <result property="memo" column="memo"/>
+        <result property="username" column="username"/>
+        <result property="realname" column="realname"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="insert" parameterType="click">
+		insert into
+		click( usersid , articleid , addtime ,   memo  )
+		values(  #{usersid} , #{articleid} , #{addtime}  , #{memo}  )
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="update" parameterType="click">
+		update click set
+		usersid=#{usersid} , articleid=#{articleid} ,		addtime=#{addtime} ,  memo=#{memo}   where		clickid=#{clickid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="delete" parameterType="String">
+		delete from click where		clickid = #{clickid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="getAll" parameterType="map" resultMap="clickMap">
+        select click.* , CONCAT(users.username,' ',users.realname) as username,users.image,
+        article.title from click , users , article
+        where click.usersid = users.usersid and
+        click.articleid = article.articleid
+
+        <if test="articleid != null and articleid != ''">
+            and click.articleid =#{articleid}
+        </if>
+        <if test="usersid != null and usersid != ''">
+            and click.usersid =#{usersid}
+        </if>
+        <if test="keyword != null and keyword != ''">
+            and
+            (
+            users.username like CONCAT('%',#{keyword},'%') or
+            users.realname like CONCAT('%',#{keyword},'%') or
+            article.title like CONCAT('%',#{keyword},'%')
+
+            )
+        </if>
+        order by clickid desc
+        <if test="(start != null and start != '') or start==0 ">
+            <if test=" limit != null and limit != ''">
+                limit #{start},#{limit}
+            </if>
+        </if>
+
+    </select>
+
+
+    <!-- 统计 获取 总数    用于分页-->
+
+    <select id="getRowSize" parameterType="map" resultType="int">
+        select count(1) from click , users , article
+        where click.usersid = users.usersid and
+        click.articleid = article.articleid
+
+        <if test="articleid != null and articleid != ''">
+            and click.articleid =#{articleid}
+        </if>
+        <if test="usersid != null and usersid != ''">
+            and click.usersid =#{usersid}
+        </if>
+        <if test="keyword != null and keyword != ''">
+            and
+            (
+            users.username like CONCAT('%',#{keyword},'%') or
+            users.realname like CONCAT('%',#{keyword},'%') or
+            article.title like CONCAT('%',#{keyword},'%')
+
+            )
+        </if>
+
+
+    </select>
+    <!-- 按主键查询 DAO通过id调用此配置 -->
+    <select id="getById" parameterType="String" resultMap="clickMap">
+		select a.* , b.username , c.title from click a , users b , article
+		c where a.usersid = b.usersid and a.articleid = c.articleid and
+		clickid=#{clickid}
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="getByCond" parameterType="click" resultMap="clickMap">
+        select article.title ,article.articleid,article.addtime from click a , users b , article
+        where 1=1
+        <if test="usersid != null and '' != usersid">
+            /*如果有用户id,则取最近浏览记录,然后去分类里匹配*/
+            and article.catalogid =
+
+            (
+            SELECT article.catalogid FROM `click`
+            left join article on article.articleid=click.articleid
+            where usersid=#{usersid} ORDER BY clickid desc LIMIT 1
+            )
+        </if>
+
+        ORDER BY RAND()
+    </select>
+    <!-- 按条件模糊查询 DAO通过id调用此配置 -->
+    <select id="getByLike" parameterType="click" resultMap="clickMap">
+        select a.* , b.username , c.title from click a , users b , article
+        c where a.usersid = b.usersid and a.articleid = c.articleid
+        <if test="usersid != null and '' != usersid">
+            and a.usersid like CONCAT('%', CONCAT(#{usersid}, '%'))
+        </if>
+        <if test="articleid != null and '' != articleid">
+            and a.articleid like CONCAT('%', CONCAT(#{articleid}, '%'))
+        </if>
+        <if test="addtime != null and '' != addtime">
+            and a.addtime like CONCAT('%', CONCAT(#{addtime}, '%'))
+        </if>
+
+        <if test="memo != null and '' != memo">
+            and a.memo like CONCAT('%', CONCAT(#{memo}, '%'))
+        </if>
+    </select>
+</mapper>
+
+

@@ -1,0 +1,51 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="spring:war exploded">
+    <output-path>$APPLICATION_HOME_DIR$/WorkSpace/spring/target/spring</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>spring</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="spring" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.ansj:ansj_seg:5.0.4" />
+          <element id="library" level="project" name="Maven: org.nlpcn:nlp-lang:1.7.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-indexer:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.13" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-instrument:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-messaging:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-oxm:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jms:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-websocket:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webflux:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: io.projectreactor:reactor-core:3.1.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.0.8.RELEASE" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$APPLICATION_HOME_DIR$/WorkSpace/spring/target/spring/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="spring/web/Web" />
+    </root>
+  </artifact>
+</component>

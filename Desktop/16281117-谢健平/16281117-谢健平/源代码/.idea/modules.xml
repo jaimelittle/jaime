@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/brSystem.iml" filepath="$PROJECT_DIR$/brSystem.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/WorkSpace/spring/codewrite.iml" filepath="$APPLICATION_HOME_DIR$/WorkSpace/spring/codewrite.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/WorkSpace/codewriting/codewriting.iml" filepath="$APPLICATION_HOME_DIR$/WorkSpace/codewriting/codewriting.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/WorkSpace/mahout/mahout-CF.iml" filepath="$APPLICATION_HOME_DIR$/WorkSpace/mahout/mahout-CF.iml" />
+      <module fileurl="file://$APPLICATION_HOME_DIR$/WorkSpace/spring/spring.iml" filepath="$APPLICATION_HOME_DIR$/WorkSpace/spring/spring.iml" />
+    </modules>
+  </component>
+</project>

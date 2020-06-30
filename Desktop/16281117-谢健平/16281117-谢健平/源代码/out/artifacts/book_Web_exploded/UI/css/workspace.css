@@ -1,0 +1,411 @@
+/*顶部连接颜色*/
+/*
+.layui-nav .layui-nav-item a {
+    color: #bbb !important;
+}
+*/
+
+/*顶部背景色*/
+.layui-layout-admin .layui-header {
+    background-color: #185582 !important;
+    display: flex; /*设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效*/
+    display: -webkit-flex; /* Safari */
+    flex-direction: column; /*容器内项目的排列方向(默认横向排列 row)*/
+    flex-wrap: nowrap; /*容器内项目换行方式*/
+    align-items: center; /*项目在交叉轴上如何对齐*/
+    align-content: center; /*定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用*/
+}
+
+
+/*底部颜色*/
+.layui-footer1 {
+    /*底部*/
+    position: fixed;
+    left:0px;
+    right:0;
+    bottom: 0;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    background-color: #185582;
+    text-align: center;
+    font-weight: bold;
+    color:#fff;
+    z-index: 9999999;
+}
+
+.layui-footer1 a {
+    color: #fff
+}
+
+.layui-footer1 a:hover {
+    color: #fff
+}
+
+
+/*右侧样式*/
+.layui-timeline-title {
+
+    overflow: hidden;
+    width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.layui-timeline-content {
+    color: #cccccc;
+
+    text-align: right;
+}
+
+
+.layui-logo11 {
+    font-weight: bold;
+    font-size: 32px;
+    color: #ffffff;
+    position: absolute;
+
+    width: 300px;
+    height: 100%;
+    line-height: 60px;
+
+
+}
+
+/*顶部左侧菜单 距左*/
+.nav1 {
+    margin-left: 20%;
+}
+
+.layui-layout-right {
+}
+
+/*移动弹出菜单*/
+.nav_mobi {
+    float: right;
+    margin-right: 50px
+}
+
+.body-aa {
+    margin-bottom: 40px;
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-top: 10px;
+
+}
+
+/*轮播*/
+.layui-carousel img {
+    width: 100%;
+    height: 100%;
+}
+
+.body-right {
+    padding-left: 10px;
+}
+
+.chapter_online .list_aa {
+    width: 100%;
+    position: absolute;
+}
+
+
+.layui-collapse {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.list_aa li {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card_box {
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #F2F2F2;
+}
+
+
+/*文字连接*/
+.layui-card-header {
+    font-weight: bold;
+}
+
+.textlink_ul {
+
+}
+
+.textlink_ul li {
+    line-height: 35px;
+}
+
+.textlink_ul li span {
+    float: right
+}
+
+.product_ul {
+    padding-top: 25px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.product_ul li {
+    width: 22%;
+    padding: 10px;
+    height: 170px;
+}
+
+
+.product_ul a img, .chapter_online .product_ul li img {
+    width: 100%;
+    display: block;
+    height: 150px;
+
+}
+
+.product_ul li .name {
+
+    height: 35px;
+    line-height: 18px;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product_ul li .author {
+    padding: 0 20px;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    color: #aaa;
+}
+
+.product_ul li .price {
+    padding-left: 20px;
+    line-height: 16px;
+    overflow: hidden;
+    font-family: "Arial";
+    font-size: 14px;
+    position: relative;
+    height: 24px;
+}
+
+.product_ul li .borrow {
+    padding-left: 20px;
+    line-height: 16px;
+    overflow: hidden;
+    font-family: "Arial";
+    font-size: 14px;
+    position: relative;
+}
+
+.chapter_online .product_ul li .author {
+    padding: 0 20px;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    color: #aaa;
+}
+
+.product_tags {
+    width: 56px !important;
+    height: 56px !important;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    color: #fff;
+    font: bold 12px/18px Arial;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+}
+
+.product_ul li .price .rob {
+    color: #c30;
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.product_ul li .price .price_r {
+    color: #aaa;
+    text-decoration: line-through;
+    float: left;
+    overflow: hidden;
+}
+
+.layui-collapse-parent-title {
+    background-color: #F5F5F5;
+}
+
+.layui-timeline-content img {
+    width: 80px;
+}
+
+.layui-author {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.layui-author:hover {
+    background-color: #fa5000;
+    color: white;
+}
+
+.chapterlist-author {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.borrow-status {
+    font-size: 12px;
+    height: 40px !important;
+}
+
+
+/*详情页*/
+
+.demo-section {
+    padding: 40px 0
+}
+
+.demo-section--light {
+    background: #f8f8f8
+}
+
+.demo-section__heading {
+    text-align: center;
+    color: #00955e
+}
+
+.demo-list {
+    list-style: none;
+    padding: 0;
+    margin: 22px 0;
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around
+}
+
+.demo-list__item {
+    width: 49%
+}
+
+.demo-list__link {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background: #00955e;
+    border-radius: 5px;
+    font-size: 13px
+}
+
+@media ( max-width: 768px) {
+    .demo-list__item {
+        width: 100%
+    }
+
+    .nav {
+        position: static
+    }
+
+    body {
+        padding-top: 0
+    }
+
+    .nav__container {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+        padding: 0
+    }
+
+    .nav__item {
+        display: block
+    }
+
+    .nav__link {
+        height: auto;
+        line-height: 1
+    }
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.content {
+    text-indent: 25px
+}
+
+/*详情页标题*/
+.title {
+    text-align: center;
+    color: #00cf7d;
+    font-size: 30px;
+    margin-bottom: 30px
+}
+
+/*详情页副标题*/
+
+.title2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #c9cccf;
+}
+
+.title a {
+    color: #00955e;
+    text-decoration: none;
+    transition: color .5s ease
+}
+
+.title a:hover {
+    color: #b83b5e
+}
+
+code {
+    background: #ddd;
+    padding: 5px;
+    line-height: 1.4;
+    font-size: 12px;
+    border: 1px solid #aaa;
+    font-family: Source Code Pro, monospace;
+    display: block
+}
+
+p {
+    color: gray
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Permanent Marker, cursive
+}
